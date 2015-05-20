@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-md-12.col-xs-12.col-sm-12
+      .thumbnail
+        - if @categorias.present?
+          %table.table.table-bordered.table-striped.bordas_alteradas{:cellspacing => "0"}
+            %thead
+              %tr.fundo_tabela
+                %th.al_center Nome
+                %th.al_center Ação
+            %tbody
+              - @categorias.each do |item|
+                %tr{:class => cycle("", "alt") }
+                  %td= item.nome.upcase
+                  %td.al_center{:width => 70}
+                    = link_to "", edit_admin_categoria_path(:id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-pencil", title: "Editar Categoria"
+                    = link_to "", admin_categoria_path(:id => item), method: :delete, data: {toggle: "tooltip", placement: "top", confirm: 'Deseja excluir definitivamente a Categoria?'}, :class => "btn btn-default btn-xs glyphicon glyphicon-trash", title: "Excluir Categoria"
+
+          - if @categorias.respond_to?(:total_pages)
+            .row
+              .col-md-12
+                = will_paginate @categorias, :previous_label => "« Anterior", :next_label => "Próximo »"
+        - else
+          %tr
+            %td
+              .alert.alert-danger{:role => "alert"}
+                %span.glyphicon.glyphicon-exclamation-sign{"aria-hidden" => "true"}
+                  %span.sr-only Error:
+                  Não Há Categoria Cadastradas
+        .row
+          .col-md-12{align: "right"}
+            = link_to "Nova Categoria", new_admin_categoria_path, :class => "btn btn-primary correcao_botao"

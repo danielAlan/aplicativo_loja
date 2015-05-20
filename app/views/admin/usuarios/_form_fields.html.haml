@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-md-
+      = simple_form_for [:admin, resource] do |f|
+        = f.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-4
+                = f.input :nome, required: true, autofocus: true
+              .col-md-4
+                = f.input :email, required: true
+              .col-md-4
+                = f.input :password, required: true, hint: ("mínimo de #{@minimum_password_length} caracteres" if @validatable)
+            .row
+              .col-md-4
+                = f.input :password_confirmation, required: true
+              .col-md-4
+                = f.association :loja
+              .col-md-4
+                = f.association :perfil
+            .row
+              .container
+                .row
+                  .col-md-12{align: "right"}
+                    %button.btn.btn-primary{:type => "button", :type => "submit"} Salvar
+                    = link_to "Sair", admin_usuarios_path, :class => "btn btn-default correcao_botao"

@@ -1,0 +1,13 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    .container#correcao_messages
+      - if name == "notice"
+        .alert.alert-info{:role => "alert"}
+          %a.close{"data-dismiss" => "alert"} ×
+          %span.sr-only Alert:
+          = content_tag :div, msg
+      - else
+        .alert.alert-danger{:role => "alert"}
+          %a.close{"data-dismiss" => "alert"} ×
+          %span.sr-only Error:
+          = content_tag :div, msg

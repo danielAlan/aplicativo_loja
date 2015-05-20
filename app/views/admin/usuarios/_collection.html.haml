@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-12.col-xs-12.col-sm-12
+      .thumbnail
+        - if @usuarios.present?
+          %table.table.table-bordered.table-striped.bordas_alteradas{:cellspacing => "0"}
+            %thead
+              %tr.fundo_tabela
+                %th.al_center Nome
+                %th.al_center E-mail
+                %th.al_center Localidade
+                %th.al_center Perfil
+                %th.al_center Ação
+            %tbody
+              - @usuarios.each do |item|
+                %tr{:class => cycle("", "alt") }
+                  %td.al_center{:width => 250}= item.nome.upcase
+                  %td.al_center= item.email
+                  %td.al_center{:width => 250}= item.localidade_nome
+                  %td.al_center{:width => 250}= item.perfil_nome
+                  %td.al_center{:width => 100}
+                    = link_to "", edit_admin_usuario_path(:id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-pencil", title: "Editar Usuário"
+                    = link_to "", admin_usuario_path(:id => item), method: :delete, data: {toggle: "tooltip", placement: "top", confirm: 'Deseja excluir definitivamente o Usuário?'}, :class => "btn btn-default btn-xs glyphicon glyphicon-trash", title: "Excluir Usuário"
+
+          - if collection.respond_to?(:total_pages)
+            .row
+              .col-md-12
+                = will_paginate collection, :previous_label => "« Anterior", :next_label => "Próximo »"
+        - else
+          %tr
+            %td
+              .alert.alert-danger{:role => "alert"}
+                %span.glyphicon.glyphicon-exclamation-sign{"aria-hidden" => "true"}
+                  %span.sr-only Error:
+                  Não Usuários Cadastrados
+        .row
+          .col-md-12{align: "right"}
+            = link_to "Novo Usuário", new_admin_usuario_path, :class => "btn btn-primary correcao_botao"

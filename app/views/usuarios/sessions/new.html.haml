@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-md-12
+      .container
+        .col-md-4
+          %h1{align: "center"} Login
+          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .row
+              = f.input :email, required: false, autofocus: true
+              = f.input :password, required: false
+              = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+            %div{align: "center"}
+              %button.btn.btn-primary.{:type => "button", :type => "submit"}
+            %br
+            .row
+              = render "devise/shared/links"

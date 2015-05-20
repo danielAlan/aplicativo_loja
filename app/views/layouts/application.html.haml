@@ -1,0 +1,26 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %title Loja
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    = stylesheet_link_tag 'application', :media => "all"
+    = csrf_meta_tags
+    = yield(:head)
+  %body.bodi
+    %header.navbar.navbar-fixed-top.navbar-default
+      %nav.navbar-inner
+        .container-fluid
+          = render 'layouts/navigation'
+    #main{:role => "main"}
+      = yield
+      .container
+        .content
+          .row
+            = render 'layouts/messages'
+      %footer
+        = render 'layouts/footer'
+      %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=false", :type => "text/javascript"}
+      = javascript_include_tag 'application'

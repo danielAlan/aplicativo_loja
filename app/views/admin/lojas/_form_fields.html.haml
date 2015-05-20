@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-md-12
+      = simple_form_for [:admin, resource] do |form|
+        = form.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-4
+                = form.input :nome, required: true, autofocus: true, input_html: { class: 'full' }
+              .col-md-7
+                = form.input :endereco, required: true, input_html: { class: 'full' }
+            .row
+              .col-md-5
+                = form.input :email, required: true, input_html: { class: 'full' }
+              .col-md-3
+                = form.input :telefone, required: true, input_html: { class: 'full' }
+              .col-md-3
+                = form.input :telefone_secundario, input_html: { class: 'full' }
+            .row
+              .col-md-3
+                = form.association :estado, input_html: { class: 'full' }
+              .col-md-4
+                = form.association :cidade, input_html: { class: 'full'}
+            .row
+              .col-md-8
+                = form.input :foto, input_html: { class: 'full' }
+            .row
+              .col-md-11{align: "right"}
+                %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                = link_to "Sair", admin_lojas_path, :class => "btn btn-default correcao_botao"

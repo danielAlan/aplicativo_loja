@@ -1,0 +1,25 @@
+// Place all the styles related to the usuarios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tudo{
+  background-image: url("piso.jpg");
+  min-height: 600px;
+}
+
+.botao_login{
+  margin-top: 5px;
+  width: 150px;
+}
+
+.centralize{
+  margin-top: 100px;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.2em black
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
