@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :lojas, :all
 
   namespace :admin do
+    
+    resources :albuns, :all do
+      resources :album_fotos, :all
+    end
+
     resources :categorias, :except => [:show]
     resources :usuarios, :except => [:show]
     resources :lojas, :all

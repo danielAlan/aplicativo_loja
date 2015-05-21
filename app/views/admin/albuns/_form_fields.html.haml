@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-md-12
+      = simple_form_for [:admin, resource] do |form|
+        = form.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-6
+                = form.input :nome, required: true, autofocus: true, input_html: { class: 'full' }
+              .col-md-5
+                = form.association :categoria, input_html: { class: 'full' }
+            .row
+              .col-md-11
+                = form.input :descricao, input_html: { class: 'full'}
+            .row
+              .col-md-8
+                = form.input :capa, input_html: { class: 'full' }
+            .row
+              .col-md-11{align: "right"}
+                %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                = link_to "Sair", admin_albuns_path, :class => "btn btn-default correcao_botao"

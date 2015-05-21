@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520173832) do
+ActiveRecord::Schema.define(version: 20150520231954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "album_fotos", force: true do |t|
+    t.integer  "album_id",                      null: false
+    t.string   "foto_file_name",                null: false
+    t.string   "foto_content_type",             null: false
+    t.integer  "foto_file_size",                null: false
+    t.datetime "foto_updated_at",               null: false
+    t.string   "comentario",        limit: 200
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "album_fotos", ["album_id"], name: "index_album_fotos_on_album_id", using: :btree
+
+  create_table "albuns", force: true do |t|
+    t.integer  "categoria_id",                  null: false
+    t.string   "nome",              limit: 100
+    t.text     "descricao"
+    t.string   "capa_file_name"
+    t.string   "capa_content_type"
+    t.integer  "capa_file_size"
+    t.datetime "capa_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "albuns", ["categoria_id"], name: "index_albuns_on_categoria_id", using: :btree
 
   create_table "cargos", force: true do |t|
     t.string   "nome"
@@ -89,15 +116,6 @@ ActiveRecord::Schema.define(version: 20150520173832) do
 
   add_index "funcionarios", ["cargo_id"], name: "index_funcionarios_on_cargo_id", using: :btree
 
-  create_table "geometry_columns", primary_key: "f_table_catalog", force: true do |t|
-    t.string  "f_table_schema",    limit: 256, null: false
-    t.string  "f_table_name",      limit: 256, null: false
-    t.string  "f_geometry_column", limit: 256, null: false
-    t.integer "coord_dimension",               null: false
-    t.integer "srid",                          null: false
-    t.string  "type",              limit: 30,  null: false
-  end
-
   create_table "lojas", force: true do |t|
     t.string   "nome",                limit: 100, null: false
     t.string   "endereco",            limit: 100, null: false
@@ -139,13 +157,6 @@ ActiveRecord::Schema.define(version: 20150520173832) do
     t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "spatial_ref_sys", primary_key: "srid", force: true do |t|
-    t.string  "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string  "srtext",    limit: 2048
-    t.string  "proj4text", limit: 2048
   end
 
   create_table "usuarios", force: true do |t|

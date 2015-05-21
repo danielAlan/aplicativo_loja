@@ -1,0 +1,11 @@
+.container
+	.row
+	.col-md-12.col-xs-12.col-sm-12
+		.thumbnail
+			.row
+				.col-sm-12.col-md-12
+					= @album.nome
+				.col-sm-6.col-md-3
+					= image_tag @album.capa.url(:medium)
+			.row
+				= render "show_fotos"

@@ -14,6 +14,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'fornecedor', 'fornecedores'
   inflect.irregular 'perfil', 'perfis'
   inflect.irregular 'categoria', 'categorias'
+  inflect.irregular 'album', 'albuns'
+  inflect.irregular 'album_foto', 'album_fotos'
 
 end
 # These inflection rules are supported but not enabled by default:

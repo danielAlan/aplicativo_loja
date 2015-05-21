@@ -1,5 +1,5 @@
 #encoding: utf-8
-class Admin::CategoriasController < ApplicationController
+class Admin::CategoriasController < InheritedResources::Base
   layout "application"
 
   # ---- Autorização do Ability ----
@@ -23,7 +23,7 @@ class Admin::CategoriasController < ApplicationController
 
   def update
     @categoria = Categoria.find(params[:id])
-    if @categoria.update(loja_params)
+    if @categoria.update(categoria_params)
       redirect_to admin_categorias_path, :notice => "Categoria Atualizada com Sucesso"
     else
       render "edit"
