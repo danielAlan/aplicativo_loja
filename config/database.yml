@@ -20,19 +20,19 @@ development:
   encoding: unicode
   database: tdd
   pool: 5
-  username: daniel
-  password: 2304
+  username: postgres
+  password: postgres
   template: postgis_template
 
 
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: tdd_teste
-  pool: 5
-  username: daniel
-  password: 2304
-  template: postgis_template
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: tdd_teste
+#   pool: 5
+#   username: daniel
+#   password: 2304
+#   template: postgis_template
 
 # production:
 #   adapter: postgresql

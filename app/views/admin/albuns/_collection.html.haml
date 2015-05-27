@@ -14,7 +14,8 @@
                 %tr{:class => cycle("", "alt") }
                   %td= item.nome.upcase
                   %td.al_center= item.categoria_nome
-                  %td.al_center{:width => 110}
+                  %td.al_center{:width => 130}
+                    = link_to "", admin_album_album_fotos_path(:album_id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-camera", title: "Editar Fotos"
                     = link_to "", admin_album_path(:id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-zoom-in", title: "Visualizar Album"
                     = link_to "", edit_admin_album_path(:id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-pencil", title: "Editar Album"
                     = link_to "", admin_album_path(:id => item), method: :delete, data: {toggle: "tooltip", placement: "top", confirm: 'Deseja excluir definitivamente o Album?'}, :class => "btn btn-default btn-xs glyphicon glyphicon-trash", title: "Excluir Album"

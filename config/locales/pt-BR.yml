@@ -217,8 +217,24 @@ pt-BR:
         <<: *errors_messages
 
     attributes:
-      # evento:
-      #   tipo_evento: "Tipo de Evento"
-      #   nome: "Nome do Evento"
-      #   nome_loja: "Local(loja)"
-      #   descricao: "Descrição do Evento"
+      album_album_foto:
+        comentario: "Descrição"
+
+  helpers:
+    select:
+      prompt: "Por favor selecione"
+
+    submit:
+      create: 'Criar %{model}'
+      update: 'Atualizar %{model}'
+      submit: 'Salvar %{model}'
+
+
+  flash:
+    admin/albuns:
+      create:
+        notice: "Album criado com sucesso"
+      update:
+        notice: "Album foi atualizado com sucesso"
+      destroy:
+        notice: "Album foi removido com sucesso"

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :lojas, :all
 
   namespace :admin do
-    
-    resources :albuns, :all do
-      resources :album_fotos, :all
+
+    resources :albuns do
+      resources :album_fotos, :except => [:show]
     end
 
     resources :categorias, :except => [:show]

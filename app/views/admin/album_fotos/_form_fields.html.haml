@@ -1,7 +1,7 @@
 .container
 	.row
 		.col-md-12
-			= simple_form_for [:admin, resource] do |form|
+			= simple_form_for [:admin, parent, resource] do |form|
 				= form.error_notification
 				.thumbnail
 					.container
@@ -14,4 +14,4 @@
 						.row
 							.col-md-11{align: "right"}
 								%button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
-								= link_to "Cancelar", admin_albuns_path, :class => "btn btn-default correcao_botao"
+								= link_to "Cancelar", new_admin_album_album_foto_path, :class => "btn btn-default correcao_botao"
