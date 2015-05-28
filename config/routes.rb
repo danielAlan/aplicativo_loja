@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
 
-  # root 'produtos#index'
+  root 'produtos#index'
 
   get 'buscar_cidades' => 'cidades#buscar_cidades'
 

@@ -13,7 +13,7 @@
               - @album_fotos.each do |item|
                 %tr{:class => cycle("", "alt") }
                   %td= item.comentario.upcase
-                  %td.al_center{:width => 200}= item.foto(:url => :thumb)
+                  %td{:width => 150}= image_tag(item.foto.url(:thumb))
                   %td.al_center{:width => 70}
                     = link_to "", edit_admin_album_album_foto_path(:album_id => @album.id, :id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-pencil", title: "Editar Foto"
                     = link_to "", admin_album_album_foto_path(:album_id => @album.id, :id => item), method: :delete, data: {toggle: "tooltip", placement: "top", confirm: 'Deseja excluir definitivamente a Foto ?'}, :class => "btn btn-default btn-xs glyphicon glyphicon-trash", title: "Excluir Foto"

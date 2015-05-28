@@ -1,55 +1,63 @@
-%ul.nav.navbar-nav.col-xs-12
-  %li
-    / = link_to "Vagas WEB", vagas_path
-    / %div#imagem_nav
-    /   = link_to image_tag("shoppvagas.png"), vagas_path
-  %ul.nav.navbar-nav.navbar-right.hidden-xs
-    / %li
-    / = link_to "Eventos", eventos_path
-    / - if (user_signed_in?) && (current_user.administrador)
-    /   %li.dropdown
-    /     %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-    /       Ações
-    /       %span.caret
-    /     %ul.dropdown-menu{:role => "menu"}
-    /       %li
-    /         / = link_to "Dia Atual Vagas", listar_vagas_admin_localidades_path
-    /       %li
-    /         / = link_to "Usuários", admin_users_path
-    /       %li
-    /         = link_to "Sair", destroy_usuario_session_path, :method => :delete
-    /   %li
-    /     %a.navbar-brand
-    /       / #{current_user.nome.humanize} -  #{current_user.localidade_nome}
+/ %ul.nav.navbar-nav.col-xs-12
+/   %li
+/     / = link_to "Vagas WEB", vagas_path
+/     / %div#imagem_nav
+/     /   = link_to image_tag("shoppvagas.png"), vagas_path
+/   %ul.nav.navbar-nav.navbar-right.hidden-xs
+/     %li
+/     = link_to "Eventos", eventos_path
+/     - if (user_signed_in?) && (current_user.administrador)
+/       %li.dropdown
+/         %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+/           Ações
+/           %span.caret
+/         %ul.dropdown-menu{:role => "menu"}
+/           %li
+/             / = link_to "Dia Atual Vagas", listar_vagas_admin_localidades_path
+/           %li
+/             / = link_to "Usuários", admin_users_path
+/           %li
+/             = link_to "Sair", destroy_usuario_session_path, :method => :delete
+/       %li
+/         %a.navbar-brand
+/           / #{current_user.nome.humanize} -  #{current_user.localidade_nome}
 
-    / - elsif (user_signed_in?) && (current_user.gerente)
-    /   %li.dropdown
-    /     %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-    /       Ações
-    /       %span.caret
-    /     %ul.dropdown-menu{:role => "menu"}
-    /       %li
-    /         / = link_to "Localidades", admin_localidades_path
-    /       %li
-    /         = link_to "Sair", destroy_user_session_path, :method => :delete
-    /   %li
-    /     %a.navbar-brand
-    /       / #{current_user.nome.humanize}
+/     - elsif (user_signed_in?) && (current_user.gerente)
+/       %li.dropdown
+/         %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+/           Ações
+/           %span.caret
+/         %ul.dropdown-menu{:role => "menu"}
+/           %li
+/             / = link_to "Localidades", admin_localidades_path
+/           %li
+/             = link_to "Sair", destroy_user_session_path, :method => :delete
+/       %li
+/         %a.navbar-brand
+/           / #{current_user.nome.humanize}
 
-    / - elsif (user_signed_in?) && (current_user.vendedor)
-    /   %li.dropdown
-    /     %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-    /       Ações
-    /       %span.caret
-    /     %ul.dropdown-menu{:role => "menu"}
-    /       %li
-    /         / = link_to "Localidades", admin_localidades_path
-    /       %li
-    /         = link_to "Sair", destroy_user_session_path, :method => :delete
-    /   %li
-    /     %a.navbar-brand
-    /       / #{current_user.nome.humanize}
+/     - elsif (user_signed_in?) && (current_user.vendedor)
+/       %li.dropdown
+/         %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+/           Ações
+/           %span.caret
+/         %ul.dropdown-menu{:role => "menu"}
+/           %li
+/             / = link_to "Localidades", admin_localidades_path
+/           %li
+/             = link_to "Sair", destroy_user_session_path, :method => :delete
+/       %li
+/         %a.navbar-brand
+/           / #{current_user.nome.humanize}
 
-    / - else
-    %li
-      = link_to "Entrar", new_usuario_session_path
+/     - else
+/     %li
+/       = link_to "Entrar", new_usuario_session_path
+
+
+
+/ %ul.nav.navbar-nav.col-xs-12
+/   %li.dropdown#botao_menu
+/     %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+/       .glyphicon.glyphicon-align-justify
+

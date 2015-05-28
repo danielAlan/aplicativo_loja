@@ -15,12 +15,14 @@ class Admin::AlbumFotosController < InheritedResources::Base
 
 
   def index
+    debugger
     @album = Album.find(params[:album_id])
-
-    @album_fotos = AlbumFoto.where(:album_id => @album.id).
-    order(:created_at)
-
+    @album_fotos = AlbumFoto.decrescente.where(:album_id => @album.id)
     @album_foto = AlbumFoto.new
+  end
+
+  def new
+    render :index
   end
 
   def create
@@ -28,14 +30,24 @@ class Admin::AlbumFotosController < InheritedResources::Base
     @album_foto.album_id = params[:album_id]
     create! do |success, failure|
       success.html do
-        render nothing: true
+        render :index
       end
     end
   end
 
-  def show
+  def edit
     @album = Album.find(params[:album_id])
-    @album_foto = AlbumFoto.find(:album_id => @album.id)
+    @album_foto = AlbumFoto.find(params[:id])
+    @album_fotos = AlbumFoto.decrescente.where(:album_id => @album.id)
+  end
+
+  def destroy
+    @album_foto = AlbumFoto.find(params[:id])
+    destroy! do |success, failure|
+      success.html do
+        render :index
+      end
+    end
   end
 
   private

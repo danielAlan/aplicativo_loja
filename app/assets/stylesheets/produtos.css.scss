@@ -1,3 +1,175 @@
 // Place all the styles related to the produtos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#fundo_colorido{
+  height: 500px;
+  background: rgb(92,226,249); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(92,226,249,1) 0%, rgba(115,1,150,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(92,226,249,1)), color-stop(100%,rgba(115,1,150,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(92,226,249,1) 0%,rgba(115,1,150,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(92,226,249,1) 0%,rgba(115,1,150,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(92,226,249,1) 0%,rgba(115,1,150,1) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(92,226,249,1) 0%,rgba(115,1,150,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ce2f9', endColorstr='#730196',GradientType=1 ); /* IE6-9 */
+}
+
+#faixa_transparente{
+  height: 200px;
+  width: 100%;
+  background-color: black;
+  opacity: 0.2;
+  margin-top: -400px;
+}
+
+#imagem_fundo{
+  opacity: 0.4;
+  margin-top: -500px;
+  height: 500px;
+  background-image: url("tri2.png");
+}
+
+#menu_personalizado{
+  position: relative;
+  background-color: black;
+  opacity: 0.8;
+  width: 200px;
+  min-height: 300px;
+  font-family: "open_sanslight";
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.menu {
+    height: 100%;
+    position: fixed;
+    right: -200px;
+    text-align: left;
+    top: 0;
+    width: 260px;
+    z-index: 10;
+}
+.menu.menu-open {
+    right: 0;
+}
+.menu-wrap {
+    background: #f7ca18 none repeat scroll 0 0;
+    height: 100%;
+    left: 60px;
+    position: absolute;
+    top: 0;
+    width: 200px;
+}
+.menu h1.logo a {
+    color: #ffffff;
+    font-family: "Lato",sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    line-height: 40px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.menu h1.logo a:hover {
+    color: #2f2f2f;
+}
+.menu img.logo {
+    margin: 20px 0;
+    max-width: 160px;
+}
+.menu a {
+    color: #808080;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 40px;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+.menu a:hover {
+    color: #ffffff;
+}
+.menu a:active {
+    color: #ffffff;
+}
+.menu a > i {
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+    line-height: 40px;
+    margin: 25px 2px;
+    text-align: left;
+    vertical-align: middle;
+    width: 25px;
+}
+.menu-close {
+    color: #808080;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 5px;
+    top: 20px;
+    transition: all 0.1s ease-in-out 0s;
+    width: 40px;
+}
+.menu-close:hover {
+    color: #ffffff;
+    transition: all 0.1s ease-in-out 0s;
+}
+.body-push {
+    left: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+.body-push-toright {
+    left: 200px;
+}
+.body-push-toleft {
+    left: -200px;
+}
+.menu, .body-push {
+    transition: all 0.3s ease 0s;
+}
+#menuToggle {
+    background: rgba(0, 0, 0, 0.25) none repeat scroll 0 0;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    left: 0;
+    line-height: 40px;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    transition: all 0.1s ease-in-out 0s;
+    width: 40px;
+    z-index: 11;
+}
+#menuToggle:hover {
+    background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+    color: #ffffff;
+    transition: all 0.1s ease-in-out 0s;
+}
+input {
+    background-color: #fff;
+    border: 1px solid #b9b9af;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    min-height: 40px;
+    padding: 11px 30px 12px;
+    transition: background-color 0.2s ease 0s;
+}
+.subscribe-input {
+    float: left;
+    margin-right: 2px;
+    text-align: left;
+    width: 65%;
+}

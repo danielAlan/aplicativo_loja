@@ -29,6 +29,7 @@ gem 'prawn-table', '~> 0.1.0'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'has_scope'
 
 group :development, :teste do
   gem "debugger"

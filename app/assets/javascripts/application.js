@@ -23,4 +23,9 @@ $(document).ready(function() {
     $('#correcao_messages').fadeOut(2000);
   }, 500);
 
+
+  $("#botao_menu").change(function(){
+    $('#menu_personalizado').fadeIn(1000);
+  });
+
 });
