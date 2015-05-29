@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520231954) do
+ActiveRecord::Schema.define(version: 20150529184802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 20150520231954) do
 
   create_table "funcionarios", force: true do |t|
     t.string   "nome",              limit: 100, null: false
-    t.string   "telefone",          limit: 11
-    t.string   "telefone_contato",  limit: 11
+    t.string   "telefone",          limit: 14
+    t.string   "telefone_contato",  limit: 14
     t.string   "endereco",          limit: 100
     t.string   "rg",                limit: 14
     t.string   "foto_file_name"
@@ -112,9 +112,16 @@ ActiveRecord::Schema.define(version: 20150520231954) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cargo_id"
+    t.string   "email",             limit: 100
+    t.integer  "estado_id"
+    t.integer  "cidade_id"
+    t.integer  "loja_id"
   end
 
   add_index "funcionarios", ["cargo_id"], name: "index_funcionarios_on_cargo_id", using: :btree
+  add_index "funcionarios", ["cidade_id"], name: "index_funcionarios_on_cidade_id", using: :btree
+  add_index "funcionarios", ["estado_id"], name: "index_funcionarios_on_estado_id", using: :btree
+  add_index "funcionarios", ["loja_id"], name: "index_funcionarios_on_loja_id", using: :btree
 
   create_table "geometry_columns", primary_key: "f_table_catalog", force: true do |t|
     t.string  "f_table_schema",    limit: 256, null: false
@@ -143,6 +150,24 @@ ActiveRecord::Schema.define(version: 20150520231954) do
 
   add_index "lojas", ["cidade_id"], name: "index_lojas_on_cidade_id", using: :btree
   add_index "lojas", ["estado_id"], name: "index_lojas_on_estado_id", using: :btree
+
+  create_table "orcamentos", force: true do |t|
+    t.string   "nome",                limit: 100
+    t.string   "endereco",            limit: 100
+    t.string   "telefone",            limit: 14
+    t.string   "telefone_contato",    limit: 14
+    t.integer  "cidade_id"
+    t.integer  "estado_id"
+    t.string   "referencia",          limit: 100
+    t.text     "descricao"
+    t.integer  "status_orcamento_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orcamentos", ["cidade_id"], name: "index_orcamentos_on_cidade_id", using: :btree
+  add_index "orcamentos", ["estado_id"], name: "index_orcamentos_on_estado_id", using: :btree
+  add_index "orcamentos", ["status_orcamento_id"], name: "index_orcamentos_on_status_orcamento_id", using: :btree
 
   create_table "perfis", force: true do |t|
     t.string   "nome",       limit: 20, null: false
@@ -175,6 +200,12 @@ ActiveRecord::Schema.define(version: 20150520231954) do
     t.string  "proj4text", limit: 2048
   end
 
+  create_table "status_orcamentos", force: true do |t|
+    t.string   "nome",       limit: 100, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "usuarios", force: true do |t|
     t.string   "email",                              default: "", null: false
     t.string   "encrypted_password",                 default: "", null: false
@@ -186,8 +217,8 @@ ActiveRecord::Schema.define(version: 20150520231954) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "nome",                   limit: 100,              null: false
     t.integer  "perfil_id"
     t.integer  "loja_id"

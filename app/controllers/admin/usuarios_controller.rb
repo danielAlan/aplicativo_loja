@@ -24,7 +24,7 @@ class Admin::UsuariosController < InheritedResources::Base
   def update
     @usuarios = Usuario.find(params[:id])
     if @usuarios.update(usuario_params)
-      redirect_to admin_users_path, :notice => "Usuário Atualizado com Sucesso"
+      redirect_to admin_usuarios_path, :notice => "Usuário Atualizado com Sucesso"
     else
       render "edit"
     end
@@ -36,7 +36,7 @@ class Admin::UsuariosController < InheritedResources::Base
 
   private
 
-  def user_params
+  def usuario_params
     params.require(:usuario).permit(:nome, :email, :password, :loja_id, :password_confirmation, :perfil_id)
   end
 end

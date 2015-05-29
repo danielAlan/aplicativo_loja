@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require masked_input
 //= require bootstrap-datepicker
 //= require_tree .
 
@@ -24,8 +25,9 @@ $(document).ready(function() {
   }, 500);
 
 
-  $("#botao_menu").change(function(){
-    $('#menu_personalizado').fadeIn(1000);
+  $('#menuToggle, .menu-close').on('click', function(){
+    $('#menuToggle').toggleClass('active');
+    $('body').toggleClass('body-push-toleft');
+    $('#theMenu').toggleClass('menu-open');
   });
-
 });

@@ -11,6 +11,12 @@ class Usuario < ActiveRecord::Base
   belongs_to :loja, class_name: "Loja"
   belongs_to :perfil, class_name: "Perfil"
 
+
+  # ---- Delegates -----
+
+  delegate :nome, to: :loja, prefix: :loja, allow_nil: true
+  delegate :nome, to: :perfil, prefix: :perfil, allow_nil: true
+
   # ---- Métodos ----
 
   def administrador
@@ -22,6 +28,10 @@ class Usuario < ActiveRecord::Base
   end
 
   def vendedor
+    self.perfil_nome.downcase == "vendedor" ? true : false
+  end
+
+  def funcionario
     self.perfil_nome.downcase == "vendedor" ? true : false
   end
 end

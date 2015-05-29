@@ -19,4 +19,8 @@ class Loja < ActiveRecord::Base
   # ----- Delegates -----
 
   delegate :nome, to: :cidade, prefix: :cidade, allow_blank: true
+
+  # ---- Atributo Álias ----
+
+  alias_attribute :name, :nome
 end

@@ -9,22 +9,29 @@
   .menu-wrap
     %h1.logo
       %a{:href => "index.html#home"} Menu
-    %i.ion-android-close.menu-close
-    %a.smoothScroll{:href => "#home"} Home
-    %a.smoothScroll{:href => "#intro"} Intro
-    %a.smoothScroll{:href => "#about"} About
-    %a.smoothScroll{:href => "#demos"} Theme Demos
-    %a.smoothScroll{:href => "#buy"} Buy Now!
-    %a.smoothScroll{:href => "http://www.landingsumo.com/wp/"} WordPress Bundle!
+    .glyphicon.glyphicon-left-arrow.menu-close
+    - if usuario_signed_in?
+      %a
+        = link_to "Sair", destroy_usuario_session_path, :method => :delete
+      - if current_usuario.administrador
+        %a
+          = link_to "Lojas", admin_lojas_path
+      - if current_usuario.gerente
+        %a
+          = link_to "Funcionários", admin_funcionarios_path
+      - if current_usuario.vendedor
+        %a
+          = link_to "Orçamentos", admin_orcamentos_path
+    - else
+      %a
+        = link_to "Entrar", new_usuario_session_path
+
+    %a{:href => "#about"} Loja
+    %a{:href => "#demos"} Funcionarios
+    %a{:href => "#demos"} Fornecedores
+    %a{:href => "#demos"} Solicitar Orçamento
+    %a{:href => "http://www.landingsumo.com/wp/"} Produtos
   #menuToggle.active
-    %i.ion-navicon-round
-
-
-
-
-
-
-
-
+    .glyphicon.glyphicon-align-justify
 
 

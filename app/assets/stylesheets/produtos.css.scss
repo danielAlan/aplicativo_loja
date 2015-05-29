@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//----------------Cria o fundo do Slide -------------------
 
 #fundo_colorido{
   height: 500px;
@@ -30,16 +31,10 @@
   background-image: url("tri2.png");
 }
 
-#menu_personalizado{
-  position: relative;
-  background-color: black;
-  opacity: 0.8;
-  width: 200px;
-  min-height: 300px;
-  font-family: "open_sanslight";
-  margin-left: 5px;
-  border-radius: 5px;
-}
+
+//--------------------------
+//classes do menu da home
+//--------------------------
 
 .menu {
     height: 100%;

@@ -16,6 +16,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'categoria', 'categorias'
   inflect.irregular 'album', 'albuns'
   inflect.irregular 'album_foto', 'album_fotos'
+  inflect.irregular 'status_orcamento', 'status_orcamentos'
 
 end
 # These inflection rules are supported but not enabled by default:

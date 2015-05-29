@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :usuarios
 
+  devise_for :usuarios
   resources :produtos, :all
   resources :lojas, :all
 
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :funcionarios, :all
     resources :fornecedores, :all
     resources :produtos, :all
+    resources :orcamentos, :all
   end
 
 
