@@ -32,9 +32,9 @@ gem 'font-awesome-rails'
 gem 'has_scope'
 
 group :development, :teste do
-  gem "debugger"
-  gem 'byebug'
-  gem 'better_errors'
+  # gem "debugger"
+  # gem 'byebug'
+  # gem 'better_errors'
   # gem 'better_errors', '~> 1.1.0'
   gem 'rb-inotify', '>= 0.8.8'
   gem 'rspec-rails', '~> 3.0'

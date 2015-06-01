@@ -20,8 +20,8 @@ development:
   encoding: unicode
   database: tdd
   pool: 5
-  username: postgres
-  password: postgres
+  username: daniel
+  password: 2304
   template: postgis_template
 
 
