@@ -1,0 +1,147 @@
+= render "head"
+
+.container
+  .row
+    .col-md-12
+      = simple_form_for [:admin, resource] do |form|
+        = form.error_notification
+        .thumbnail
+          .container
+            - if resource.status_orcamento == StatusOrcamento.find_by_name("Aguardando")
+              .row
+                .col-md-11
+                  .panel.panel-default
+                    .panel-heading Informações do Agendamento
+                    .panel-body
+                      .row
+                        %tr
+                          %td
+                            .alert.alert-info{:role => "alert"}
+                              %span.glyphicon.glyphicon-exclamation-sign{"aria-hidden" => "true"}
+                                %span.sr-only Error:
+                                Agendar Orçamento
+                      .row
+                        .form-group
+                          %label.col-sm-4.control-label Status do Orçamento
+                          .row
+                            .col-md-8
+                              = form.association :status_orcamento, label: false, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, :item_wrapper_class => 'radio-inline'
+                      .row
+                        .col-md-2
+                          = form.input :data_agendamento, as: :string, input_html: { class: 'full datemask' }
+                        .col-md-2
+                          = form.input :hora_agendamento, as: :string, input_html: { class: 'full timemask' }
+                      .row
+                        .col-md-11{align: "right"}
+                          %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                          = link_to "Sair", admin_orcamentos_path, :class => "btn btn-default correcao_botao"
+
+            - if resource.status_orcamento == StatusOrcamento.find_by_name("Agendado")
+              .row
+                .col-md-11
+                  .panel.panel-primary
+                    .panel-heading Informações do Agendamento
+                    .panel-body
+                      .row
+                        .col-md-3
+                          %ul
+                            %li
+                              %strong Data Agendada
+                            %li
+                              = l(resource.data_agendamento, format: :default)
+                        .col-md-3
+                          %ul
+                            %li
+                              %strong Hora Agendada
+                            %li
+                              = l(resource.hora_agendamento, format: :hora)
+              %br
+              .row
+                .col-md-11
+                  .panel.panel-default
+                    .panel-heading Informações da Visita
+                    .panel-body
+                      .row
+                        %tr
+                          %td
+                            .alert.alert-info{:role => "alert"}
+                              %span.glyphicon.glyphicon-exclamation-sign{"aria-hidden" => "true"}
+                                %span.sr-only Error:
+                                Inserir data da visita
+                      .row
+                        .form-group
+                          %label.col-md-4.control-label Status do Orçamento
+                          .row
+                            .col-md-8
+                              = form.association :status_orcamento, label: false, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, :item_wrapper_class => 'radio-inline'
+                      .row
+                        .col-md-2
+                          = form.input :data_visita, as: :string, input_html: { class: 'full datemask' }
+                        .col-md-2
+                          = form.input :hora_visita, as: :string, input_html: { class: 'full timemask' }
+                      .row
+                        .col-md-11{align: "right"}
+                          %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                          = link_to "Sair", admin_orcamentos_path, :class => "btn btn-default correcao_botao"
+
+            - if resource.status_orcamento == StatusOrcamento.find_by_name("Realizado")
+              .row
+                .col-md-11
+                  .panel.panel-primary
+                    .panel-heading Informações do Agendamento
+                    .panel-body
+                      .row
+                        .col-md-3
+                          %ul
+                            %li
+                              %strong Data Agendada
+                            %li
+                              = l(resource.data_agendamento, format: :default)
+                        .col-md-3
+                          %ul
+                            %li
+                              %strong Hora Agendada
+                            %li
+                              = l(resource.hora_agendamento, format: :hora)
+              %br
+              .row
+                .col-md-11
+                  .panel.panel-primary
+                    .panel-heading Informações da Visita
+                    .panel-body
+                      .row
+                        .col-md-3
+                          %ul
+                            %li
+                              %strong Data da Visita
+                            %li
+                              = l(resource.data_visita, format: :default)
+                        .col-md-3
+                          %ul
+                            %li
+                              %strong Hora da Visita
+                            %li
+                              = l(resource.hora_visita, format: :hora)
+              %br
+              .row
+                .col-md-11
+                  .panel.panel-default
+                    .panel-heading Informações da Venda
+                    .panel-body
+                      .row
+                        %tr
+                          %td
+                            .alert.alert-info{:role => "alert"}
+                              %span.glyphicon.glyphicon-exclamation-sign{"aria-hidden" => "true"}
+                                %span.sr-only Error:
+                                Inserir Fechamento
+                      .row
+                        .form-group
+                          %label.col-md-4.control-label Status do Orçamento
+                          .row
+                            .col-md-8
+                              = form.association :status_orcamento, label: false, as: :radio_buttons, wrapper: :horizontal_radio_and_checkboxes, :item_wrapper_class => 'radio-inline'
+                          .row
+                            .col-md-11{align: "right"}
+                              %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                              = link_to "Sair", admin_orcamentos_path, :class => "btn btn-default correcao_botao"

@@ -29,7 +29,8 @@
     %a{:href => "#about"} Loja
     %a{:href => "#demos"} Funcionarios
     %a{:href => "#demos"} Fornecedores
-    %a{:href => "#demos"} Solicitar Orçamento
+    %a
+      = link_to "Orçamentos", new_orcamento_path
     %a{:href => "http://www.landingsumo.com/wp/"} Produtos
   #menuToggle.active
     .glyphicon.glyphicon-align-justify

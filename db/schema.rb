@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529184802) do
+ActiveRecord::Schema.define(version: 20150601142311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,11 @@ ActiveRecord::Schema.define(version: 20150529184802) do
     t.integer  "status_orcamento_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",               limit: 100
+    t.date     "data_agendamento"
+    t.time     "hora_agendamento"
+    t.date     "data_visita"
+    t.time     "hora_visita"
   end
 
   add_index "orcamentos", ["cidade_id"], name: "index_orcamentos_on_cidade_id", using: :btree

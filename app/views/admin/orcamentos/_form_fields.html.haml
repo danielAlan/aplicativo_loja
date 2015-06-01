@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-md-12
+      = simple_form_for [:admin, resource] do |form|
+        = form.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-5
+                = form.input :nome, required: true, autofocus: true, input_html: { class: 'full' }
+              .col-md-3
+                = form.input :telefone, required: true, input_html: { class: 'full' }
+              .col-md-3
+                = form.input :telefone_contato, input_html: { class: 'full' }
+            .row
+              .col-md-4
+                = form.input :email, input_html: { class: 'full' }
+              .col-md-7
+                = form.input :endereco, input_html: { class: 'full' }
+            .row
+              .col-md-4
+                = form.association :estado, required: true, input_html: { class: 'full' }
+              .col-md-4
+                = form.association :cidade, input_html: { class: 'full' }
+            .row
+              .col-md-11
+                = form.input :referencia, input_html: { class: 'full' }
+            .row
+              .col-md-11
+                = form.input :descricao, required: true, input_html: { class: 'full'}
+            .row
+              .col-md-11{align: "right"}
+                %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                = link_to "Sair", root_path, :class => "btn btn-default correcao_botao"
