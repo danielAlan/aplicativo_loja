@@ -1,9 +1,11 @@
 #encoding: utf-8
-class Admin::OrcamentosController < InheritedResources::Base
+class OrcamentosController < InheritedResources::Base
 
   # ---- Configuração do InheritedResources ----
 
-  actions :all
+  actions :only => [ :new, :create, :edit, :update, :destroy, :show]
+
+  custom_actions
 
   # ---- Métodos ----
 
@@ -21,7 +23,7 @@ class Admin::OrcamentosController < InheritedResources::Base
     @orcamento.status_orcamento = StatusOrcamento.find_by_name("Aguardando")
     create! do |success, failure|
       success.html do
-        redirect_to admin_orcamento_path(resource), :notice => "Orçamento Criado com Sucesso"
+        redirect_to orcamento_path(resource), :notice => "Orçamento Criado com Sucesso"
       end
     end
   end
@@ -29,25 +31,20 @@ class Admin::OrcamentosController < InheritedResources::Base
   def update
     @orcamento = Orcamento.find(params[:id])
     if @orcamento.update(orcamento_params)
-      redirect_to admin_orcamento_path(resource), :notice => "Orçamento Atualizado com Sucesso"
+      redirect_to orcamento_path(resource), :notice => "Orçamento Atualizado com Sucesso"
     else
       render "edit"
     end
   end
 
-  def acompanhar_orcamento
-    @orcamento = Orcamento.find(params[:id])
-  end
-
   def destroy
-    destroy! {admin_orcamentos_path}
+    destroy! {root_path}
   end
 
   private
 
   def orcamento_params
     params.require(:orcamento).permit(:nome, :endereco, :telefone, :telefone_contato,
-      :email, :cidade_id, :estado_id, :referencia, :descricao, :status_orcamento_id, :data_agendamento,
-      :hora_agendamento, :data_visita, :hora_visita)
+      :email, :cidade_id, :estado_id, :referencia, :descricao, :status_orcamento_id, :data, :hora)
   end
 end

@@ -4,8 +4,8 @@
 
 
 $ ->
-  $('#fornecedor_estado_id').change ->
-      getCitiesByState 'id=' + $('#fornecedor_estado_id').val()
+  $('#orcamento_estado_id').change ->
+      getCitiesByState 'id=' + $('#orcamento_estado_id').val()
       return
     return
 
@@ -16,6 +16,6 @@ window.getCitiesByState = (id) ->
     $.each j.cty, (i, item) ->
       options += '<option value="' + item.id + '">' + item.nome + '</option>'
       return
-    $('#fornecedor_cidade_id').html options
+    $('#orcamento_cidade_id').html options
     return
   return

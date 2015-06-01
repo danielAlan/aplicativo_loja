@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :usuarios
   resources :produtos, :all
   resources :lojas, :all
+  resources :orcamentos, :only => [ :new, :create, :edit, :update, :destroy, :show]
 
   namespace :admin do
 
@@ -17,7 +18,12 @@ Rails.application.routes.draw do
     resources :funcionarios, :all
     resources :fornecedores, :all
     resources :produtos, :all
-    resources :orcamentos, :all
+    resources :orcamentos, :all do
+      member do
+        get 'acompanhar_orcamento'
+        post 'acompanhar_orcamento'
+      end
+    end
   end
 
 

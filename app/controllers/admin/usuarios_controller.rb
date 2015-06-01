@@ -13,7 +13,7 @@ class Admin::UsuariosController < InheritedResources::Base
   end
 
   def create
-    @usuarios = Usuario.new(usuario_params)
+    @usuario = Usuario.new(usuario_params)
     create! do |success, failure|
       success.html do
         redirect_to admin_users_path, :notice => "Usuário Criado com Sucesso"
@@ -22,8 +22,8 @@ class Admin::UsuariosController < InheritedResources::Base
   end
 
   def update
-    @usuarios = Usuario.find(params[:id])
-    if @usuarios.update(usuario_params)
+    @usuario = Usuario.find(params[:id])
+    if @usuario.update(usuario_params)
       redirect_to admin_usuarios_path, :notice => "Usuário Atualizado com Sucesso"
     else
       render "edit"
