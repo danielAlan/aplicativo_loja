@@ -19,5 +19,7 @@ class Funcionario < ActiveRecord::Base
   # ---- Delegates -----
 
   delegate :nome, to: :cargo, prefix: :cargo, allow_nil: true
-  delegate :nome, to: :loja, prefix: :true, allow_nil: true
+  delegate :nome, to: :loja, prefix: :loja, allow_nil: true
+  delegate :nome, to: :cidade, prefix: :cidade, allow_nil: true
+  delegate :nome, to: :estado, prefix: :estado, allow_nil: true
 end

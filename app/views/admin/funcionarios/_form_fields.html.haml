@@ -12,8 +12,11 @@
                 = f.association :loja, :input_html => { :class => "full" }
               .col-md-3
                 = f.association :cargo, :input_html => { :class => "full" }
+            .row
               .col-md-2
                 = f.input :rg, :input_html => { :class => "full" }
+              .col-md-2
+                = f.input :data_admissao, as: :string, :input_html => { :class => "full datemask" }
             .row
               .col-md-3
                 = f.input :telefone, :input_html => { :class => "full phone_with_ddd" }

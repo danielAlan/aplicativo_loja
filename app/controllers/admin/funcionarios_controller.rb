@@ -24,7 +24,7 @@ class Admin::FuncionariosController < InheritedResources::Base
   def update
     @funcionario = Funcionario.find(params[:id])
     if @funcionario.update(funcionario_params)
-      redirect_to admin_funcionario_path(resource), :notice => "Loja Atualizada com Sucesso"
+      redirect_to admin_funcionario_path(resource), :notice => "Funcionário Atualizado com Sucesso"
     else
       render "edit"
     end
@@ -38,6 +38,6 @@ class Admin::FuncionariosController < InheritedResources::Base
 
   def funcionario_params
     params.require(:funcionario).permit(:nome, :telefone, :telefone_contato, :endereco,
-      :rg, :foto, :email, :cargo_id, :cidade_id, :estado_id, :loja_id)
+      :rg, :foto, :email, :cargo_id, :cidade_id, :estado_id, :loja_id, :data_admissao)
   end
 end

@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-md-
+      = simple_form_for [:admin, resource] do |f|
+        = f.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-8
+                = f.input :nome, required: true, autofocus: true, :input_html => { :class => "full" }
+              .col-md-3
+                = f.input :cnpj, :input_html => { :class => "full" }
+            .row
+              .col-md-3
+                = f.input :telefone, :input_html => { :class => "full phone_with_ddd" }
+              .col-md-3
+                = f.input :telefone_secundario, :input_html => { :class => "full phone_with_ddd" }
+              .col-md-5
+                = f.input :email, :input_html => { :class => "full" }
+            .row
+              .col-md-5
+                = f.input :endereco, :input_html => { :class => "full" }
+              .col-md-3
+                = f.association :estado, :input_html => { :class => "full" }
+              .col-md-3
+                = f.association :cidade, :input_html => { :class => "full" }
+            .row
+              .container
+                .row
+                  .col-md-11{align: "right"}
+                    %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                    = link_to "Sair", admin_funcionarios_path, :class => "btn btn-default correcao_botao"

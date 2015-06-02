@@ -1,0 +1,57 @@
+= render "head"
+
+.container
+  .row
+    .col-md-12
+      .thumbnail
+        .row
+          .col-md-5
+            %ul
+              %li
+                %strong Nome
+              %li
+                = resource.nome.upcase
+          .col-md-2
+            %ul
+              %li
+                %strong CNPJ
+              %li
+                = resource.cnpj
+          .col-md-3
+            %ul
+              %li
+                %strong Email
+              %li
+                = verificar_valor(resource.email)
+        .row
+          .col-md-2
+            %ul
+              %li
+                %strong Telefone
+              %li
+                = resource.telefone
+          .col-md-2
+            %ul
+              %li
+                %strong Telefone
+              %li
+                = verificar_valor(resource.telefone_secundario)
+        .row
+          .col-md-5
+            %ul
+              %li
+                %strong Endereço
+              %li
+                = verificar_valor(resource.endereco)
+          .col-md-2
+            %ul
+              %li
+                %strong Cidade
+              %li
+                = verificar_valor(resource.cidade_nome)
+          .col-md-2
+            %ul
+              %li
+                %strong Estado
+              %li
+                = verificar_valor(resource.estado_nome)

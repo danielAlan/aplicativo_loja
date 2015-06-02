@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :funcionarios, :all
     resources :fornecedores, :all
     resources :produtos, :all
+    resources :cartao_pontos, :all
     resources :orcamentos, :all do
       member do
         get 'acompanhar_orcamento'

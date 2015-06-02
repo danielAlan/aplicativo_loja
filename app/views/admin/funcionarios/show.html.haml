@@ -1,0 +1,80 @@
+= render "head"
+
+.container
+  .row
+    .col-md-12
+      .thumbnail
+        .row
+          .col-md-3
+            = image_tag resource.foto.url(:medium)
+          .col-md-9
+            .row
+              .col-md-6
+                %ul
+                  %li
+                    %strong Nome
+                  %li
+                    = resource.nome.upcase
+              .col-md-2
+                %ul
+                  %li
+                    %strong RG
+                  %li
+                    = resource.rg
+            %br
+            .row
+              .col-md-3
+                %ul
+                  %li
+                    %strong Cargo
+                  %li
+                    = resource.cargo_nome.upcase
+              .col-md-3
+                %ul
+                  %li
+                    %strong Loja
+                  %li
+                    = resource.loja_nome.upcase
+              .col-md-3
+                %ul
+                  %li
+                    %strong Data Admissão
+                  %li
+                    = verificar_valor(resource.data_admissao)
+            %br
+            .row
+              .col-md-3
+                %ul
+                  %li
+                    %strong Telefone
+                  %li
+                    = resource.telefone
+              .col-md-3
+                %ul
+                  %li
+                    %strong Celular
+                  %li
+                    = verificar_valor(resource.telefone_contato)
+              .col-md-3
+                %ul
+                  %li
+                    %strong Email
+                  %li
+                    = verificar_valor(resource.email)
+            %br
+            .row
+              .col-md-6
+                %ul
+                  %li
+                    %strong Endereço
+                  %li
+                    = verificar_valor(resource.endereco)
+              .col-md-2
+                %ul
+                  %li
+                    %strong Cidade
+                  %li
+                    = verificar_valor(resource.cidade_nome)
+      .row
+        .col-md-12{align: "right"}
+          = link_to "Voltar", admin_funcionarios_path, :class => "btn btn-primary correcao_botao"

@@ -5,8 +5,6 @@ class OrcamentosController < InheritedResources::Base
 
   actions :only => [ :new, :create, :edit, :update, :destroy, :show]
 
-  custom_actions
-
   # ---- Métodos ----
 
   def index
