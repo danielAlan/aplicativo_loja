@@ -1,0 +1,33 @@
+.container
+  .row
+    .col-md-12.col-xs-12.col-sm-12
+      .thumbnail
+        - if @album_fotos.present?
+          %table.table.table-bordered.table-striped.bordas_alteradas{:cellspacing => "0"}
+            %thead
+              %tr.fundo_tabela
+                %th.al_center Foto
+                %th.al_center Ação
+            %tbody
+              - @album_fotos.each do |item|
+                %tr{:class => cycle("", "alt") }
+                  %td= item.nome.upcase
+                  %td.al_center= item.foto(:url => :thumb)
+                  %td.al_center{:width => 110}
+                    = link_to "", edit_admin_album_album_foto_path(:album_id => , :id => item), :class => "btn btn-default btn-xs glyphicon glyphicon-pencil", title: "Editar Foto"
+                    = link_to "", admin_album_album_foto_path(:album_id =>, :id => item), method: :delete, data: {toggle: "tooltip", placement: "top", confirm: 'Deseja excluir definitivamente a Foto?'}, :class => "btn btn-default btn-xs glyphicon glyphicon-trash", title: "Excluir Foto"
+
+          - if @album_fotos.respond_to?(:total_pages)
+            .row
+              .col-md-12
+                = will_paginate @album_fotos, :previous_label => "« Anterior", :next_label => "Próximo »"
+        - else
+          %tr
+            %td
+              .alert.alert-danger{:role => "alert"}
+                %span.glyphicon.glyphicon-exclamation-sign{"aria-hidden" => "true"}
+                  %span.sr-only Error:
+                  Não Há Fotos cadastradas Para o Album
+        .row
+          .col-md-12{align: "right"}
+            = link_to "Novo Album", new_admin_album_path, :class => "btn btn-primary correcao_botao"
