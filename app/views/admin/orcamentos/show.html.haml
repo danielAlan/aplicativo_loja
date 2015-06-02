@@ -4,3 +4,138 @@
   .row
     .col-md-12
       .thumbnail
+        .row
+          .col-md-4
+            %ul
+              %li
+                %strong Status
+              %li
+                = resource.status_orcamento_nome.upcase
+        .row
+          .col-md-4
+            %ul
+              %li
+                %strong Nome do Cliente
+              %li
+                = resource.nome.upcase
+          .col-md-4
+            %ul
+              %li
+                %strong Email
+              %li
+                = verificar_valor(resource.email)
+          .col-md-2
+            %ul
+              %li
+                %strong Telefone
+              %li
+                = resource.telefone
+          .col-md-2
+            %ul
+              %li
+                %strong Celular
+              %li
+                = verificar_valor(resource.telefone_contato)
+        .row
+          .col-md-8
+            %ul
+              %li
+                %strong Endereço
+              %li
+                = verificar_valor(resource.endereco)
+          .col-md-2
+            %ul
+              %li
+                %strong Cidade
+              %li
+                = verificar_valor(resource.cidade_nome)
+          .col-md-2
+            %ul
+              %li
+                %strong Estado
+              %li
+                = verificar_valor(resource.estado_nome)
+        .row
+          .col-md-5
+            %ul
+              %li
+                %strong Ponto de Referência
+              %li
+                = verificar_valor(resource.referencia)
+        .row
+          .col-md-12
+            %ul
+              %li
+                %strong Descrição
+              %li
+                = verificar_valor(resource.descricao)
+        - if resource.status_orcamento_nome == "Agendado"
+          .row
+            .col-md-12
+              %hr
+          .row
+            .col-md-4
+              %ul
+                %li
+                  %strong INFORMAÇÕES DO AGENDAMENTO
+          .row
+            .col-md-2
+              %ul
+                %li
+                  %strong Data
+                %li
+                  = verificar_valor(resource.data_agendamento)
+            .col-md-2
+              %ul
+                %li
+                  %strong Hora
+                %li
+                  = l(resource.hora_agendamento, format: :hora)
+        - if resource.status_orcamento_nome == "Realizado"
+          .row
+            .col-md-12
+              %hr
+          .row
+            .col-md-4
+              %ul
+                %li
+                  %strong INFORMAÇÕES DO AGENDAMENTO
+          .row
+            .col-md-2
+              %ul
+                %li
+                  %strong Data
+                %li
+                  = verificar_valor(resource.data_agendamento)
+            .col-md-2
+              %ul
+                %li
+                  %strong Hora
+                %li
+                  = l(resource.hora_agendamento, format: :hora)
+          .row
+            .col-md-12
+              %hr
+          .row
+            .col-md-4
+              %ul
+                %li
+                  %strong INFORMAÇÕES DA VISITA
+          .row
+            .col-md-2
+              %ul
+                %li
+                  %strong Data
+                %li
+                  = verificar_valor(resource.data_visita)
+            .col-md-2
+              %ul
+                %li
+                  %strong Hora
+                %li
+                  = l(resource.hora_visita, format: :hora)
+
+        .row
+          .col-md-11{align: "right"}
+            = link_to "Imprimir", imprimir_orcamento_admin_orcamento_path(resource, format: :pdf), :class => "btn btn-primary correcao_botao", :target => "_blank"
+            = link_to "Sair", admin_orcamentos_path, :class => "btn btn-default correcao_botao"

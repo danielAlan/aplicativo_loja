@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       member do
         get 'acompanhar_orcamento'
         post 'acompanhar_orcamento'
+        get 'imprimir_orcamento'
       end
     end
   end
