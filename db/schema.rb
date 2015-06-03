@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602180607) do
+ActiveRecord::Schema.define(version: 20150603180941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,16 @@ ActiveRecord::Schema.define(version: 20150602180607) do
 
   create_table "cartao_pontos", force: true do |t|
     t.integer  "funcionario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "mes",            limit: 2
+    t.integer  "ano"
+  end
+
+  add_index "cartao_pontos", ["funcionario_id"], name: "index_cartao_pontos_on_funcionario_id", using: :btree
+
+  create_table "cartao_pontos_dias", force: true do |t|
+    t.integer  "cartao_ponto_id"
     t.date     "data"
     t.time     "entrada"
     t.time     "almoco_saida"
@@ -60,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150602180607) do
     t.datetime "updated_at"
   end
 
-  add_index "cartao_pontos", ["funcionario_id"], name: "index_cartao_pontos_on_funcionario_id", using: :btree
+  add_index "cartao_pontos_dias", ["cartao_ponto_id"], name: "index_cartao_pontos_dias_on_cartao_ponto_id", using: :btree
 
   create_table "categorias", force: true do |t|
     t.string   "nome",       limit: 100
@@ -96,6 +106,14 @@ ActiveRecord::Schema.define(version: 20150602180607) do
     t.string "nome", limit: 50
     t.string "uf",   limit: 5
   end
+
+  create_table "feriados_cadastrados", force: true do |t|
+    t.integer "tipo_feriado_id"
+    t.string  "descricao",       limit: 100
+    t.string  "data",            limit: 8
+  end
+
+  add_index "feriados_cadastrados", ["tipo_feriado_id"], name: "index_feriados_cadastrados_on_tipo_feriado_id", using: :btree
 
   create_table "fornecedores", force: true do |t|
     t.string   "nome",                limit: 100, null: false
@@ -137,6 +155,15 @@ ActiveRecord::Schema.define(version: 20150602180607) do
   add_index "funcionarios", ["cidade_id"], name: "index_funcionarios_on_cidade_id", using: :btree
   add_index "funcionarios", ["estado_id"], name: "index_funcionarios_on_estado_id", using: :btree
   add_index "funcionarios", ["loja_id"], name: "index_funcionarios_on_loja_id", using: :btree
+
+  create_table "geometry_columns", primary_key: "f_table_catalog", force: true do |t|
+    t.string  "f_table_schema",    limit: 256, null: false
+    t.string  "f_table_name",      limit: 256, null: false
+    t.string  "f_geometry_column", limit: 256, null: false
+    t.integer "coord_dimension",               null: false
+    t.integer "srid",                          null: false
+    t.string  "type",              limit: 30,  null: false
+  end
 
   create_table "lojas", force: true do |t|
     t.string   "nome",                limit: 100, null: false
@@ -204,10 +231,21 @@ ActiveRecord::Schema.define(version: 20150602180607) do
     t.datetime "updated_at"
   end
 
+  create_table "spatial_ref_sys", primary_key: "srid", force: true do |t|
+    t.string  "auth_name", limit: 256
+    t.integer "auth_srid"
+    t.string  "srtext",    limit: 2048
+    t.string  "proj4text", limit: 2048
+  end
+
   create_table "status_orcamentos", force: true do |t|
     t.string   "nome",       limit: 100, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tipos_feriados", force: true do |t|
+    t.string "nome", limit: 100, null: false
   end
 
   create_table "usuarios", force: true do |t|

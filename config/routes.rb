@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :categorias, :except => [:show]
+    resources :feriados_cadastrados, :except => [:show]
     resources :usuarios, :except => [:show]
     resources :lojas, :all
     resources :funcionarios, :all

@@ -1,0 +1,21 @@
+.container
+  .row
+    .col-md-
+      = simple_form_for [:admin, resource] do |f|
+        = f.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-3
+                = f.input :data, required: true, :input_html => { :class => "full mesano" }
+              .col-md-3
+                = f.association :tipo_feriado, :input_html => { :class => "full" }
+            .row
+              .col-md-12
+                = f.input :descricao, :input_html => { :class => "full " }
+            .row
+              .container
+                .row
+                  .col-md-12{align: "right"}
+                    %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                    = link_to "Sair", admin_feriados_cadastrados_path, :class => "btn btn-default correcao_botao"

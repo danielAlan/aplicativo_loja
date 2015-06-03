@@ -10,7 +10,7 @@
                 %li
                   %strong Mês
                 %li
-                  =  Date.current.strftime('%B')
+                  =  Time.current.strftime('%B')
             .col-md-3
               %ul
                 %li
@@ -19,7 +19,7 @@
                   = Date.current.year
     .col-md-7
       .panel.panel-info
-        .panel-heading Informações do Mês de #{Date.current.strftime('%B')}
+        .panel-heading Informações do Mês de #{Time.current.strftime('%B')}
         .panel-body
           .row
             .col-md-6
@@ -27,22 +27,11 @@
                 %li
                   %strong Dias no mês
                 %li
-                  =  "#{Date.new.end_of_month.day} dias"
+                  =  "#{Time.current.end_of_month.day} dias"
             .col-md-6
               %ul
                 %li
                   %strong Dias trabalhados
                 %li
-                  =  "20 dias"
+                  =  quantidade_dias_trabalhados_mes
 
-
-
-
-
-.container
-  .row
-    .col-md-12
-      .panel.panel-primary
-        .panel-heading Dados do Cartão
-        .panel-body
-          .row

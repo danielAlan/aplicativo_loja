@@ -30,10 +30,12 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'has_scope'
+gem 'resque', :require => 'resque/server'
+gem 'resque-status'
 
 group :development, :teste do
   # gem "debugger"
-  # gem 'byebug'
+  gem 'byebug'
   # gem 'better_errors'
   # gem 'better_errors', '~> 1.1.0'
   gem 'rb-inotify', '>= 0.8.8'
