@@ -1,0 +1,48 @@
+.container
+  .row
+    .col-md-5
+      .panel.panel-info
+        .panel-heading Informações do Cartão
+        .panel-body
+          .row
+            .col-md-6
+              %ul
+                %li
+                  %strong Mês
+                %li
+                  =  Date.current.strftime('%B')
+            .col-md-3
+              %ul
+                %li
+                  %strong Ano
+                %li
+                  = Date.current.year
+    .col-md-7
+      .panel.panel-info
+        .panel-heading Informações do Mês de #{Date.current.strftime('%B')}
+        .panel-body
+          .row
+            .col-md-6
+              %ul
+                %li
+                  %strong Dias no mês
+                %li
+                  =  "#{Date.new.end_of_month.day} dias"
+            .col-md-6
+              %ul
+                %li
+                  %strong Dias trabalhados
+                %li
+                  =  "20 dias"
+
+
+
+
+
+.container
+  .row
+    .col-md-12
+      .panel.panel-primary
+        .panel-heading Dados do Cartão
+        .panel-body
+          .row

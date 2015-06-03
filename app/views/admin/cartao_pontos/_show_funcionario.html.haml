@@ -1,0 +1,36 @@
+.container
+  .row
+    .col-md-12
+      .panel.panel-success
+        .panel-heading Informações do Funcionário
+        .panel-body
+          .row
+            .col-md-1
+              = image_tag @funcionario.foto.url(:thumb)
+            .col-md-11
+              .row
+                %br
+                .col-md-5
+                  %ul
+                    %li
+                      %strong Nome
+                    %li
+                      = @funcionario.nome.upcase
+                .col-md-2
+                  %ul
+                    %li
+                      %strong RG
+                    %li
+                      = @funcionario.rg
+                .col-md-2
+                  %ul
+                    %li
+                      %strong Cargo
+                    %li
+                      = verificar_valor(@funcionario.cargo_nome)
+                .col-md-2
+                  %ul
+                    %li
+                      %strong Loja
+                    %li
+                      = verificar_valor(@funcionario.loja_nome)

@@ -7,20 +7,16 @@
             %thead
               %tr.fundo_tabela
                 %th.al_center Nome
-                %th.al_center Telefone
-                %th.al_center Celular
                 %th.al_center Cargo
                 %th.al_center Ação
             %tbody
               - @funcionarios.each do |item|
                 %tr{:class => cycle("", "alt") }
                   %td.al_center= item.nome.upcase
-                  %td.al_center= item.telefone
-                  %td.al_center= item.telefone_contato
                   %td.al_center= item.cargo_nome
-                  %td.al_center{:width => 100}
+                  %td.al_center{:width => 80}
                     = link_to "", admin_cartao_ponto_path(item), :class => "btn btn-default btn-xs glyphicon glyphicon-zoom-in", title: "Visualizar Cartão"
-                    = link_to "", edit_admin_cartao_ponto_path(item), :class => "btn btn-default btn-xs glyphicon glyphicon-icon-nameplate", title: "Editar Cartão"
+                    = link_to "", edit_admin_cartao_ponto_path(item), :class => "btn btn-default btn-xs glyphicon glyphicon-time", title: "Editar Cartão"
           - if collection.respond_to?(:total_pages)
             .row
               .col-md-12

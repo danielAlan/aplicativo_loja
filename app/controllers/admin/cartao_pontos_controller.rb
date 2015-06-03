@@ -11,4 +11,9 @@ class Admin::CartaoPontosController < InheritedResources::Base
   def index
     @funcionarios = Funcionario.order(:nome).paginate(:page => params[:page], :per_page => 10)
   end
+
+
+  def edit 
+  	@funcionario = Funcionario.find(params[:id])
+  end
 end
