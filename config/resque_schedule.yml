@@ -1,6 +1,0 @@
-gerar_cartao_ponto:
-  cron: "0 4 1 * *"
-  class: "GerarCartao"
-  queue: high
-  args:
-  description: "Gerar Cartão de Ponto mensalmente"

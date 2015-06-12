@@ -30,8 +30,6 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'has_scope'
-gem 'resque', :require => 'resque/server'
-gem 'resque-status'
 
 group :development, :teste do
   # gem "debugger"
