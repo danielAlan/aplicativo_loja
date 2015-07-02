@@ -1,0 +1,11 @@
+= render "head"
+
+= render "show_funcionario"
+
+= render "show_cartao_mes"
+
+- if Date.current.day == 12
+  .container
+    .row
+      .col-md-12{align: "right"}
+        %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit", :action => "gerar_cartao", :funcionario_id => "#{@funcionario.id}"} Gerar Cartão do Mês

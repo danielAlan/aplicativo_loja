@@ -21,6 +21,14 @@ class Admin::CartaoPontosController < InheritedResources::Base
     @cartao_ponto = CartaoPonto.new(params)
   end
 
+  def show
+    @funcionario = Funcionario.find(params[:id])
+  end
+
+  # def gerar_cartao
+  #   gerar_cartao_funcionario(params[:funcionario_id])
+  # end
+
   private
 
   def cartao_ponto_params
