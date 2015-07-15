@@ -1,0 +1,13 @@
+$ ->
+  <% %w(orcamentos).each do |form| %>
+      window.newUrl<%= form.classify %>Cliente = ->
+        "/clientes.json?"
+
+      $("#<%= form %>_cliente_id").tokenInput("newUrl<%= form.classify %>Ciente()",
+      {
+        urlType: "call",
+        minChars: 3,
+        tokenLimit: 1,
+        prePopulate: [$("#<%= form %>_cliente_id").data("pre")]
+      })
+  <% end %>

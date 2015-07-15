@@ -9,14 +9,14 @@
               .col-md-4
                 = f.input :nome, required: true, autofocus: true, :input_html => { :class => "full" }
               .col-md-3
-                = f.association :loja, :input_html => { :class => "full" }
+                = f.input :loja, :input_html => {:class => "full select-token" }, :collection => lojas_cadastradas
               .col-md-3
-                = f.association :cargo, :input_html => { :class => "full" }
+                = f.input :cargo, :input_html => {:class => "full select-token"}, :collection => Cargo.all
             .row
               .col-md-2
                 = f.input :rg, :input_html => { :class => "full" }
               .col-md-2
-                = f.input :data_admissao, as: :string, :input_html => { :class => "full datemask" }
+                = f.input :data_admissao, as: :string, :input_html => { :class => "full datemask datepicker" }
             .row
               .col-md-3
                 = f.input :telefone, :input_html => { :class => "full phone_with_ddd" }
@@ -28,8 +28,6 @@
               .col-md-4
                 = f.input :foto
             .row
-              .container
-                .row
-                  .col-md-12{align: "right"}
-                    %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
-                    = link_to "Sair", admin_funcionarios_path, :class => "btn btn-default correcao_botao"
+              .col-md-11{align: "right"}
+                %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                = link_to "Sair", admin_funcionarios_path, :class => "btn btn-default correcao_botao"

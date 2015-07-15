@@ -30,6 +30,10 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'has_scope'
+gem "selectize-rails"
+gem 'thinking-sphinx', '~> 3.1.0'
+gem 'mysql2',          '~> 0.3.18', :platform => :ruby
+gem 'jdbc-mysql',      '~> 5.1.35', :platform => :jruby
 
 group :development, :teste do
   # gem "debugger"

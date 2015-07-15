@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603180941) do
+ActiveRecord::Schema.define(version: 20150715174130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150603180941) do
     t.string   "cpf",                 limit: 14
     t.integer  "estado_id"
     t.integer  "cidade_id"
+    t.boolean  "delta",                           default: true
   end
 
   add_index "clientes", ["cidade_id"], name: "index_clientes_on_cidade_id", using: :btree

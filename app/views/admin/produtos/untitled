@@ -1,0 +1,21 @@
+
+/ view
+/ - if can?(:update, item) || can?(:destroy, item)
+/   = button_edit(item)
+/   = button_destroy(item)
+/ - else
+/   = link_to("javascript:void(0);", :class => "btn_no_text btn ui-state-default ui-corner-all tooltip") do
+/     = content_tag(:span, nil, :class => "ui-icon ui-icon-disabled ui-icon-pencil")
+/   = link_to("javascript:void(0);", :class => "btn_no_text btn ui-state-default ui-corner-all tooltip") do
+/     = content_tag(:span, nil, :class => "ui-icon ui-icon-disabled ui-icon-trash")
+
+
+/ ability
+/ cannot [:update, :destroy], Perfil do |perfil|
+/   !perfil.editavel?
+/ end
+
+/ model|(editavel é uma coluna do banco de dados boolean)
+/ def editavel?
+/   self.editavel == true
+/ end

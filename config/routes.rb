@@ -27,6 +27,13 @@ Rails.application.routes.draw do
         get 'imprimir_orcamento'
       end
     end
+
+    resources :clientes, :all do
+      collection do
+        get 'search'
+        get 'combo_cidades'
+      end
+    end
   end
 
 

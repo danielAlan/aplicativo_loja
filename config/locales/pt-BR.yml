@@ -220,6 +220,10 @@ pt-BR:
       album_album_foto:
         comentario: "Descrição"
 
+      funcionario:
+        data_admissao: "Admissão"
+        telefone_contato: "Celular"
+
   helpers:
     select:
       prompt: "Por favor selecione"

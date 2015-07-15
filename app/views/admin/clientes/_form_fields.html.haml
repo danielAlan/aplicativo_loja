@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-md-
+      = simple_form_for [:admin, resource] do |f|
+        = f.error_notification
+        .thumbnail
+          .container
+            .row
+              .col-md-8
+                = f.input :nome, required: true, :input_html => { :class => "full" }
+              .col-md-2
+                = f.input :cpf, :input_html => { :class => "full cpf" }
+              .col-md-2
+                = f.input :rg, :input_html => { :class => "full" }
+            .row
+              .col-md-5
+                = f.input :endereco, :input_html => { :class => "full" }
+              .col-md-3
+                = f.input :estado, :input_html => { :class => "full select-token" }, collection: Estado.all
+              .col-md-4#carrega_cidade{:style => "display: none"}
+            .row
+              .container
+                .row
+                  .col-md-12{align: "right"}
+                    %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit"} Salvar
+                    = link_to "Sair", admin_clientes_path, :class => "btn btn-default correcao_botao"

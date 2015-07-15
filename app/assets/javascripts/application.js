@@ -13,10 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require masked_input
 //= require bootstrap-datepicker
+//= require selectize
 //= require_tree .
-
 
 $(document).ready(function() {
 
@@ -30,4 +29,8 @@ $(document).ready(function() {
     $('body').toggleClass('body-push-toleft');
     $('#theMenu').toggleClass('menu-open');
   });
+});
+
+$('.select-token').selectize({
+  sortField: 'text'
 });
