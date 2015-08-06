@@ -1,5 +1,4 @@
-.col-md-4
-  %li.select
-    %label
-      Cidade
-    = collection_select(:cliente, :cidade_id, @cidades, :id, :nome, {:prompt => "" }, { :class => "full select-token", "data-placeholder" => "Selecione uma Cidade"})
+.col-md-4.select
+  %label
+    Cidade
+  = collection_select(:cliente, :cidade_id, @cidades, :id, :nome, {:prompt => "" }, { :class => "full select-token", "data-placeholder" => "Selecione uma Cidade"})

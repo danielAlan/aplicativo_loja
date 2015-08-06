@@ -4,8 +4,11 @@
 
 = render "show_cartao_mes"
 
-- if Date.current.day == 12
+- if !@cartao_ponto.present?
   .container
     .row
       .col-md-12{align: "right"}
-        %button.btn.btn-primary.correcao_botao{:type => "button", :type => "submit", :action => "gerar_cartao", :funcionario_id => "#{@funcionario.id}"} Gerar Cartão do Mês
+
+        = link_to "Gerar Cartão", gerar_cartao_admin_cartao_ponto_path, :class => "button btn btn-primary correcao_botao"
+- else
+  = render "visualizar_cartao_ponto"

@@ -1,0 +1,21 @@
+.container
+  .row
+    .col-md-12.col-xs-12.col-sm-12
+      .thumbnail
+        - if @cartao_pontos_dias.present?
+          %table.table.table-bordered.table-striped.bordas_alteradas{:cellspacing => "0"}
+            %thead
+              %tr.fundo_tabela
+                %th.al_center Dia
+                %th.al_center Entrada
+                %th.al_center Almoço Saida
+                %th.al_center Almoço Entrada
+                %th.al_center Saída
+            %tbody
+              - @cartao_pontos_dias.each do |item|
+                %tr{:class => cycle("", "alt") }
+                  %td.al_center= item.data
+                  %td.al_center= item.entrada
+                  %td.al_center= item.almoco_saida
+                  %td.al_center= item.almoco_entrada
+                  %td.al_center= item.saida
